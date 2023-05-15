@@ -1,0 +1,30 @@
+.residentCard {
+  width: 250px;
+  background-color: #062226;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  overflow: hidden;
+  color: white;
+}
+.residentCard:hover {
+  box-shadow: 0 0 10px 1px white;
+}
+.residentCard > p {
+  font-size: 17px;
+}
+.residentCard > img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.residentName {
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.cardInf {
+  color: grey;
+  font-size: 20px;
+}
