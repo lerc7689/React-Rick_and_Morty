@@ -24,7 +24,6 @@ body {
 
 .search {
     height: 50px;
-    /* background-color: ghostwhite; */
     display: flex;
     justify-content: space-around;
     padding-top: 15px;
@@ -61,12 +60,11 @@ body {
 
 .searchBox>button {
     height: 88%;
-    /* margin-left: 5px; */
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    font-size: 17px;
+    font-size: 15px;
     background-color: #062226;
-    color: greenyellow;
+    color: rgb(162, 255, 22);
     border-left: none;
 }
 
