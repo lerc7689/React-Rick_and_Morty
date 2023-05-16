@@ -17,28 +17,25 @@ const ResidentCard = ({ resident }) => {
 
   return (
     <>
-      {/* {Resident ? ( */}
+     
       <div className="residentCard">
         {<img src={Resident?.image} alt="" />}
 
         <div className="residentName">{Resident?.name}</div>
         <hr />
+        <b className="cardInf">Race: </b>
         <p>
-          <b className="cardInf">Race: </b>
           {Resident?.species}
         </p>
+        <b className="cardInf">Origin: </b>
         <p>
-          <b className="cardInf">Origin: </b>
           {Resident?.origin?.name}
         </p>
+        <b className="cardInf">Appearance in episodes: </b>
         <p>
-          <b className="cardInf">Appearance in episodes: </b>
           {Resident?.episode?.length}
         </p>
       </div>
-      {/* ) : (
-        <p></p>
-      )} */}
     </>
   );
 };

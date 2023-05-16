@@ -4,6 +4,7 @@ import LocationInfo from "./components/locationInfo/LocationInfo";
 import "./App.css";
 import Nav from "./components/nav/Nav";
 import ResidentCard from "./components/residentCard/ResidentCard";
+import Loading from "./components/loading/Loading";
 import getLocationById from "./services/getLocationById";
 
 function App() {
@@ -67,7 +68,7 @@ function App() {
             <ResidentCard resident={r} key={r.id} />
           ))
         ) : (
-          <>Loading</>
+           <Loading/>
         )}
       </div>
     </>
