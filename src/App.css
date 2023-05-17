@@ -3,6 +3,7 @@
 *::before {
     margin: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
 }
 
 body {
@@ -56,6 +57,10 @@ body {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     text-align: center;
+}
+
+.searchBox>input:focus {
+    background-color: #FFEBCD;
 }
 
 .searchBox>button {

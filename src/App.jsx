@@ -21,8 +21,7 @@ function App() {
   }
 
   const handleKeyDown = async (e) =>{
-    if (e.key === 'Enter') {
-      // validacion si es numero del 1 al 126
+    if (e.key === 'Enter') { 
       if(/[0-9]/.test(id)  & id > 0 & id < 127){
       const data = await getLocationById(id);
       setLocations(data)
@@ -41,10 +40,8 @@ function App() {
     }
 
   }
-///
   useEffect(() => {
     loadDataviewe();
-    // loadResident();
   }, []);
 
   return (

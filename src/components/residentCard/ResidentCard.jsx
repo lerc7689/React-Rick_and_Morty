@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import "./ResidentCard.css";
 
 const ResidentCard = ({ resident }) => {
-  //let resident = "https://rickandmortyapi.com/api/character/652";
 
   const [Resident, setResident] = useState();
   const loadResident = async () => {
