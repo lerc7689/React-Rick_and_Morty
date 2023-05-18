@@ -6,14 +6,20 @@ import Nav from "./components/nav/Nav";
 import ResidentCard from "./components/residentCard/ResidentCard";
 import Loading from "./components/loading/Loading";
 import getLocationById from "./services/getLocationById";
+import {usePagination} from "./hooks/usePagination"
 
 function App() {
   const [locations, setLocations] = useState([]);
   const [id, setId] = useState("");
 
+  const [quatityPagination, setQuatityPagination] = useState(10);
+
+  const [pageNumber, listSlice, pages, changePageTo] = usePagination(locations.residents, quatityPagination)
+
   const loadDataviewe = async () => {
     const data = await getRandomLocations();
     setLocations(data);
+    //console.log(locations.residents.length)
   };
   const onChange = (e) =>{
     console.log(e.target.value)
@@ -38,7 +44,6 @@ function App() {
     }else{
       alert("debe digitar un numero del 1 al 126")
     }
-
   }
   useEffect(() => {
     loadDataviewe();
@@ -60,13 +65,23 @@ function App() {
         {<LocationInfo props={locations} />}
       </div>
       <div className="characters">
-        {locations ? (
-          locations.residents?.map((r) => (
+        {listSlice ? (
+          listSlice.map((r) => (
             <ResidentCard resident={r} key={r.id} />
           ))
         ) : (
            <Loading/>
         )}
+      </div>
+      <div>
+        <button onClick={()=> changePageTo(pageNumber -1) } className="btnBackNext">Back </button>
+          {pages.map((i)=>(
+            <button key={i} onClick={()=>changePageTo(i)} className="btnPages" >
+              {i}
+            </button>
+            
+          ))}
+        <button onClick={()=> changePageTo(pageNumber +1)} className="btnBackNext">Next</button>
       </div>
     </>
   );

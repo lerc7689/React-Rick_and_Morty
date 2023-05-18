@@ -79,6 +79,35 @@ body {
     color: white;
 }
 
+.btnPages {
+    border-radius: 50%;
+    background-color: #1e8fa0;
+    color: rgb(162, 255, 22);
+    border: none;
+    margin: 3px;
+}
+
+.btnPages:active {
+    background-color: #14616d;
+}
+
+.btnPages:focus {
+    background-color: rgb(162, 255, 22);
+    color: #1e8fa0;
+}
+
+.btnBackNext {
+    background-color: #1e8fa0;
+    color: rgb(162, 255, 22);
+    border: none;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.btnBackNext:active {
+    background-color: #14616d;
+}
+
 @media (min-width: 320px) and (max-width: 576px) {
     .search>button {
         width: 110px;
