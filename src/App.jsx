@@ -76,7 +76,7 @@ function App() {
       <div className="pagination">
         <button onClick={()=> changePageTo(pageNumber -1) } className="btnBackNext">Back </button>
           {pages.map((i)=>(
-            <button key={i} onClick={()=>changePageTo(i)} className="btnPages" >
+            <button key={i} onClick={()=>changePageTo(i)} className="btnPages" style={{backgroundColor:pageNumber=== i?  "rgb(162, 255, 22)": undefined, color:pageNumber=== i? "#1e8fa0": undefined}}>
               {i}
             </button>
             

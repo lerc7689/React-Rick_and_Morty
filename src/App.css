@@ -93,9 +93,10 @@ body {
     margin: 3px;
 }
 
-.btnPages:active {
+
+/* .btnPages:active {
     background-color: #14616d;
-}
+} */
 
 .btnPages:focus {
     background-color: rgb(162, 255, 22);
