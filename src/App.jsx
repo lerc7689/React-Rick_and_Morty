@@ -19,10 +19,8 @@ function App() {
   const loadDataviewe = async () => {
     const data = await getRandomLocations();
     setLocations(data);
-    //console.log(locations.residents.length)
   };
   const onChange = (e) =>{
-    console.log(e.target.value)
     setId(e.target.value)
   }
 
@@ -31,6 +29,7 @@ function App() {
       if(/[0-9]/.test(id)  & id > 0 & id < 127){
       const data = await getLocationById(id);
       setLocations(data)
+      setId("")
     }else{
       alert("debe digitar un numero del 1 al 126")
     }
@@ -41,6 +40,7 @@ function App() {
     if(/[0-9]/.test(id) & id > 0 & id < 127){
       const data = await getLocationById(id);
       setLocations(data)
+      setId("")
     }else{
       alert("debe digitar un numero del 1 al 126")
     }
@@ -73,7 +73,7 @@ function App() {
            <Loading/>
         )}
       </div>
-      <div>
+      <div className="pagination">
         <button onClick={()=> changePageTo(pageNumber -1) } className="btnBackNext">Back </button>
           {pages.map((i)=>(
             <button key={i} onClick={()=>changePageTo(i)} className="btnPages" >

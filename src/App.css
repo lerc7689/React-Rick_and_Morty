@@ -79,6 +79,11 @@ body {
     color: white;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
 .btnPages {
     border-radius: 50%;
     background-color: #1e8fa0;
