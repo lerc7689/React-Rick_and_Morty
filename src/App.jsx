@@ -7,6 +7,7 @@ import ResidentCard from "./components/residentCard/ResidentCard";
 import Loading from "./components/loading/Loading";
 import getLocationById from "./services/getLocationById";
 import {usePagination} from "./hooks/usePagination"
+import Footer from "./components/footer/Footer"
 
 function App() {
   const [locations, setLocations] = useState([]);
@@ -83,6 +84,8 @@ function App() {
           ))}
         <button onClick={()=> changePageTo(pageNumber +1)} className="btnBackNext">Next</button>
       </div>
+
+            <Footer/>
     </>
   );
 }

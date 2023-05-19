@@ -82,7 +82,8 @@ body {
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    flex-wrap: wrap;
+    margin: 10px;
 }
 
 .btnPages {
@@ -91,16 +92,7 @@ body {
     color: rgb(162, 255, 22);
     border: none;
     margin: 3px;
-}
-
-
-/* .btnPages:active {
-    background-color: #14616d;
-} */
-
-.btnPages:focus {
-    background-color: rgb(162, 255, 22);
-    color: #1e8fa0;
+    cursor: pointer;
 }
 
 .btnBackNext {
@@ -109,6 +101,7 @@ body {
     border: none;
     margin: 3px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btnBackNext:active {
