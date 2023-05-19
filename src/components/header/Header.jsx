@@ -1,5 +1,5 @@
 import titleImage from "../../assets/img/navTitleImage.png";
-import "./Nav.css";
+import "./Header.css";
 
 const Nav = () => {
   return (

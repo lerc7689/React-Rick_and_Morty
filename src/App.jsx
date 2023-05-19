@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import getRandomLocations from "./services/getRandomLocations";
 import LocationInfo from "./components/locationInfo/LocationInfo";
 import "./App.css";
-import Nav from "./components/nav/Nav";
+import Header from "./components/header/Header";
 import ResidentCard from "./components/residentCard/ResidentCard";
 import Loading from "./components/loading/Loading";
 import getLocationById from "./services/getLocationById";
@@ -52,7 +52,7 @@ function App() {
 
   return (
     <>
-      <Nav />
+      <Header />
 
       <div className="search">
       <div className="searchBox">
