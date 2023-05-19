@@ -85,7 +85,7 @@ function App() {
         <button onClick={()=> changePageTo(pageNumber +1)} className="btnBackNext">Next</button>
       </div>
 
-            <Footer/>
+      <Footer/>
     </>
   );
 }
