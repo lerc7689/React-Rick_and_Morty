@@ -1,5 +1,4 @@
-//import titleImage from "../../assets/img/navTitleImage.png";
-//import "./Header.css";
+import "./Search.css";
 
 const Search = ({onChange, handleClick, handleKeyDown, loadDataviewe, id, handlelocationClick,handlelocationKeyDown, onChangelocation, locationList, locationEvent}) => {
   return (
