@@ -9,6 +9,8 @@ import getLocationById from "./services/getLocationById";
 import {usePagination} from "./hooks/usePagination"
 import Footer from "./components/footer/Footer"
 import getAllLocationsList from "./services/getAllLocationsList";
+import Pagination from "./components/pagination/Pagination";
+import Search from "./components/search/Search";
 
 function App() {
   const [locations, setLocations] = useState([]);
@@ -24,11 +26,8 @@ function App() {
     const data = await getRandomLocations();
     setLocations(data);
   };
-   const onChange = (e) =>{
-     setId(e.target.value)
-   }
 
-  ///
+  ///Busqueda por location
   const onChangelocation = async (e) =>{
     let namesArray = []
     setLocationEvent(e.target.value)
@@ -67,7 +66,11 @@ const handlelocationKeyDown = async (e) =>{
       })
       setLocationEvent("")
   }
-  ///
+  //Busqueda por id
+  const onChange = (e) =>{
+    setId(e.target.value)
+  }
+
   const handleKeyDown = async (e) =>{
     if (e.key === 'Enter') { 
       if(/[0-9]/.test(id)  & id > 0 & id < 127){
@@ -98,23 +101,10 @@ const handlelocationKeyDown = async (e) =>{
     <>
       <Header />
 
-      <div className="search">
-      <div className="searchBox">
-      <input type="text" onChange={onChange} onKeyDown={handleKeyDown} value={id}/>
-      <button onClick={handleClick}>Search by id</button>
-      </div>
-      <button onClick={loadDataviewe}>Random Location</button>
-
-      <div className="searchBox">
-      <input type="search" list="drawfemails" onChange={onChangelocation} onKeyDown={handlelocationKeyDown} value={locationEvent}/>
-      <button onClick={handlelocationClick} >Search by location</button>
-      </div>
-      <datalist id="drawfemails">
-        {locationList?.map(locationName =>
-              <option  key={locationName} value={locationName}>{locationName}</option>
-        )} 
-      </datalist>
-      </div>
+      <Search onChange={onChange} handleClick={handleClick} handleKeyDown={handleKeyDown} 
+        loadDataviewe={loadDataviewe} id={id} handlelocationClick={handlelocationClick} 
+        handlelocationKeyDown={handlelocationKeyDown} onChangelocation={onChangelocation} 
+        locationList={locationList} locationEvent={locationEvent}/>
 
       <div className="Container">
         {<LocationInfo props={locations} />}
@@ -129,16 +119,7 @@ const handlelocationKeyDown = async (e) =>{
         )}
       </div>
 
-      <div className="pagination">
-        <button onClick={()=> changePageTo(pageNumber -1) } className="btnBackNext">Back </button>
-          {pages.map((i)=>(
-            <button key={i} onClick={()=>changePageTo(i)} className="btnPages" style={{backgroundColor:pageNumber=== i?  "rgb(162, 255, 22)": undefined, color:pageNumber=== i? "#1e8fa0": undefined}}>
-              {i}
-            </button>
-            
-          ))}
-        <button onClick={()=> changePageTo(pageNumber +1)} className="btnBackNext">Next</button>
-      </div>
+      <Pagination pages ={pages} changePageTo={changePageTo} pageNumber={pageNumber} setQuatityPagination={setQuatityPagination}/>  
 
       <Footer/>
     </>
