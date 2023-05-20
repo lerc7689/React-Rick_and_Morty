@@ -4,6 +4,11 @@
     justify-content: center;
 }
 
+select {
+    background-color: #1e8fa0;
+    color: rgb(162, 255, 22);
+}
+
 .pagination {
     display: flex;
     justify-content: center;

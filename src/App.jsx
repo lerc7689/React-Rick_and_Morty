@@ -104,7 +104,8 @@ const handlelocationKeyDown = async (e) =>{
       <Search onChange={onChange} handleClick={handleClick} handleKeyDown={handleKeyDown} 
         loadDataviewe={loadDataviewe} id={id} handlelocationClick={handlelocationClick} 
         handlelocationKeyDown={handlelocationKeyDown} onChangelocation={onChangelocation} 
-        locationList={locationList} locationEvent={locationEvent}/>
+        locationList={locationList} locationEvent={locationEvent}
+      />
 
       <div className="Container">
         {<LocationInfo props={locations} />}
