@@ -8,10 +8,13 @@ import Loading from "./components/loading/Loading";
 import getLocationById from "./services/getLocationById";
 import {usePagination} from "./hooks/usePagination"
 import Footer from "./components/footer/Footer"
+import getAllLocationsList from "./services/getAllLocationsList";
 
 function App() {
   const [locations, setLocations] = useState([]);
   const [id, setId] = useState("");
+  const [locationEvent, setLocationEvent] = useState("");
+  const [locationList, setLocationList] = useState([]);
 
   const [quatityPagination, setQuatityPagination] = useState(10);
 
@@ -21,10 +24,50 @@ function App() {
     const data = await getRandomLocations();
     setLocations(data);
   };
-  const onChange = (e) =>{
-    setId(e.target.value)
+   const onChange = (e) =>{
+     setId(e.target.value)
+   }
+
+  ///
+  const onChangelocation = async (e) =>{
+    let namesArray = []
+    setLocationEvent(e.target.value)
+    const data = await getAllLocationsList()
+
+    data.results.filter(e => {
+      if(e.name.toLowerCase().includes(locationEvent))
+      namesArray.push(e.name)
+      
+    })
+    setLocationList(namesArray)
   }
 
+const handlelocationKeyDown = async (e) =>{
+  if (e.key === 'Enter') { 
+    const data = await getAllLocationsList()
+    data.results.filter(e => {
+      if(e.name.toLowerCase() === locationEvent.toLowerCase()){
+        listSlice.push(e)
+        setLocations(e)
+      }
+      
+    })
+    setLocationEvent("")
+  }
+  
+}
+  const handlelocationClick = async () => {
+      const data = await getAllLocationsList()
+      data.results.filter(e => {
+        if(e.name.toLowerCase() === locationEvent.toLowerCase()){
+          listSlice.push(e)
+          setLocations(e)
+        }
+        
+      })
+      setLocationEvent("")
+  }
+  ///
   const handleKeyDown = async (e) =>{
     if (e.key === 'Enter') { 
       if(/[0-9]/.test(id)  & id > 0 & id < 127){
@@ -50,6 +93,7 @@ function App() {
     loadDataviewe();
   }, []);
 
+
   return (
     <>
       <Header />
@@ -60,6 +104,16 @@ function App() {
       <button onClick={handleClick}>Search by id</button>
       </div>
       <button onClick={loadDataviewe}>Random Location</button>
+
+      <div className="searchBox">
+      <input type="search" list="drawfemails" onChange={onChangelocation} onKeyDown={handlelocationKeyDown} value={locationEvent}/>
+      <button onClick={handlelocationClick} >Search by location</button>
+      </div>
+      <datalist id="drawfemails">
+        {locationList?.map(locationName =>
+              <option  key={locationName} value={locationName}>{locationName}</option>
+        )} 
+      </datalist>
       </div>
 
       <div className="Container">
@@ -74,6 +128,7 @@ function App() {
            <Loading/>
         )}
       </div>
+
       <div className="pagination">
         <button onClick={()=> changePageTo(pageNumber -1) } className="btnBackNext">Back </button>
           {pages.map((i)=>(
