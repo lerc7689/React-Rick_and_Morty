@@ -1,5 +1,5 @@
 .footer {
-    height: 5%;
+    height: 4%;
     width: 100vw;
     background-color: rgba(17, 16, 16, 0.438);
     color: white;
@@ -13,8 +13,8 @@
 }
 
 .Image {
-    width: 23px;
-    height: 23px;
+    width: 22px;
+    height: 22px;
 }
 
 .footer>p {
