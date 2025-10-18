@@ -120,7 +120,12 @@ const handlelocationKeyDown = async (e) =>{
         )}
       </div>
 
-      <Pagination pages ={pages} changePageTo={changePageTo} pageNumber={pageNumber} setQuatityPagination={setQuatityPagination}/>  
+      <Pagination 
+        pages={pages} 
+        changePageTo={changePageTo} 
+        pageNumber={pageNumber} 
+        setQuatityPagination={setQuatityPagination}
+      />  
 
       <Footer/>
     </>

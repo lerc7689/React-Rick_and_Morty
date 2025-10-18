@@ -1,5 +1,5 @@
-.select {
-    margin-top: 5px;
+.selectContainer {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
@@ -7,23 +7,37 @@
 select {
     background-color: #1e8fa0;
     color: rgb(162, 255, 22);
+    border-radius: 8px;
+    font-size: medium;
+    padding: 0.3rem;
+    border: none;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 3px;
     margin: 10px;
     margin-bottom: 30px;
 }
 
+.pagination p{
+    color: lightgray;
+    line-height: 200%;
+    /* background-color: red; */
+}
+
 .btnPages {
+    width: 25px;
     border-radius: 50%;
     background-color: #1e8fa0;
     color: rgb(162, 255, 22);
     border: none;
     margin: 3px;
     cursor: pointer;
+    padding: 0.3rem ;
+    border: none;
 }
 
 .btnBackNext {
@@ -33,6 +47,7 @@ select {
     margin: 3px;
     border-radius: 10px;
     cursor: pointer;
+    border: none;
 }
 
 .btnBackNext:active {

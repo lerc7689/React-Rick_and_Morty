@@ -5,11 +5,11 @@
     padding: 10px;
     font-size: 20px;
     overflow: hidden;
-    color: white;
+    color: lightgray;
 }
 
 .residentCard:hover {
-    box-shadow: 0 0 10px 1px white;
+    box-shadow: 0 0 5px 1px white;
 }
 
 .residentCard>p {
@@ -30,4 +30,18 @@
 .cardInf {
     color: grey;
     font-size: 12px;
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+    .residentCard {
+        width: 100px;
+    }
+
+    .residentCard>p {
+    font-size: 10px;
+    }
+
+    .residentName {
+        font-size: 10px;
+    }
 }

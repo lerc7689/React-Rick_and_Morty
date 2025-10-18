@@ -33,6 +33,9 @@ import { useEffect, useState } from "react";
 export const usePagination = (list = [], quantityPerPage) => {
     const [pageNumber, setPageNumber] = useState(1);
 
+    console.log(list);
+    
+
     const lowerLimit = quantityPerPage * (pageNumber - 1);
     const upperLimit = quantityPerPage * pageNumber - 1;
     const totalPages = Math.ceil(list.length / quantityPerPage);
