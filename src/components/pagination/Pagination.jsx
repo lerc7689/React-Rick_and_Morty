@@ -1,18 +1,20 @@
 import "./Pagination.css";
 
 const Pagination = ({ pages, changePageTo, pageNumber , setQuatityPagination }) => {
-  console.log(pageNumber);
   
   return (
     <>
-      <div className="selectContainer">
-        <select onChange={(e)=>  {if(Number(e.target.value))setQuatityPagination(e.target.value)}}>
-          <option selected>Change quantity per page</option>
-          <option >10</option>
-          <option >15</option>
-          <option >20</option>
-        </select>
-      </div>
+      {pages.length &&(
+        <div className="selectContainer">
+          
+          <select onChange={(e)=>  {if(Number(e.target.value))setQuatityPagination(e.target.value)}}>
+            <option selected>Change quantity per page</option>
+            <option >10</option>
+            <option >15</option>
+            <option >20</option>
+          </select>
+        </div>
+      )}
       <div className="pagination">
         {pageNumber > 2 && <button onClick={()=> changePageTo(1)} className="btnBackNext">First</button>}
         { pageNumber > 1 && <button onClick={()=> changePageTo(pageNumber -1) } className="btnBackNext">Back </button>}
