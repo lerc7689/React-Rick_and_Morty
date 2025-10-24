@@ -24,7 +24,7 @@ const Pagination = ({ pages, changePageTo, pageNumber , setQuatityPagination }) 
           { pageNumber > 2 && <p>...</p>}
           {pages.map((i)=>(
             <>
-              {  i === (pageNumber )  &&(
+            {  (i === pageNumber  - 1 || i === pageNumber || i === pageNumber + 1 ) &&(
               <button key={i} onClick={()=>changePageTo(i)} className="btnPages" style={{backgroundColor:pageNumber=== i?  "rgb(162, 255, 22)": undefined, color:pageNumber=== i? "#1e8fa0": undefined}}>
                 {i}
               </button>)}
